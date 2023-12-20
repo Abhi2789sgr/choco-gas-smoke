@@ -1,0 +1,41 @@
+{
+  "name": "biva",
+  "version": "1.0.0",
+  "description": "BIVA Engineer Multi-Gas Analyser And Smoke Meter",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "electron-builder install-app-deps",
+    "start": "electron .",
+    "pack": "build --dir", 
+    "dist": "build"
+  },
+  "build": {
+    "appId": "biva-engineer",
+    "win": {
+      "icon": "./public/img/newlogo.png",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "author": "biva-engineer",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "latest",
+    "crypto-js": "^4.0.0",
+    "electron-prompt": "^1.6.0",
+    "express": "latest",
+    "macaddress": "^0.5.1",
+    "serialport": "7.1.4"
+  },
+  "devDependencies": {
+    "electron": "4.1.1",
+    "electron-builder": "20.39.0"
+  }
+}

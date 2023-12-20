@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="./public/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./public/css/choco2.css">
+</head>
+<body>
+<div class="menubox">
+    <div>
+      <div class="row">
+        <div class="col-sm-1"><img src="./public/img/logo1.png" style="width:70px; height:70px; padding:10px;"></div>
+        
+        <div class="col-sm-6">
+          <h3 style="color: darkblue;">BIVA ENGINEER INDIA PVT. LTD.</h4>
+          <p style="font-size: 12px; margin-top: -10px; font-weight: 300; color: darkblue;">Multi-Gas Analyser & Smoke Meter</p>
+        </div>
+        <div class="col-sm-5">
+          <div class="menuBtnDiv">
+            <div>
+              <button class="menuBtn" id="minimize">_</button>
+              <button class="menuBtn" id="exit">X</button>
+            </div>
+          </div>
+          <div style="font-weight: 300; font-size: 12px; text-align: right; padding-right: 20px; color: darkblue;">For support :-------------</div>
+          <div style="font-weight: 300; font-size: 13px; text-align: right; padding-right: 20px; color: darkblue;">Copyrights BIVA Engineer.</div>
+        </div>
+        
+      </div>
+    </div>
+  </div> <!-- end of menu div -->
+ 
+ <div class="body-box">
+        <div class="tool-bar">
+          <div class="select-tool active1" id="statusTool">
+            Status
+          </div>
+          <div class="select-tool active2" id="configTool">
+            Config
+            
+          </div>
+          <div class="select-tool active3" id="aboutTool">
+            About
+            
+          </div>
+        </div>
+
+        <div class="content-box">
+
+          <div class="status-box" id="statusDiv">
+             <!-- <div class="hoverStatusDiv">
+              <p>Web Services started at %ip.%port</p>
+              <p>Petrol Equipment not available</p>
+              <p>BIVA Engineer BESB01 is not connected at COM6</p>
+              <p>Server started <span id="clock"></span> (local)</p>
+             </div> -->
+              <div class="statusName">
+              <h2>Multi-Gas Analyser & Smoke Meter</h2>
+             </div>
+              
+              <div class="submit-data">
+                <center><button class="btn-submit" id="submitBtn">START</button></center>
+              </div>
+            
+              <div class="form-control receive-windows">
+
+              </div>
+             </div>
+          <!-- -------------------config div------------------------ -->
+           <div id="configDiv">
+
+            <div class="configThreeDiv" id="general">
+            General
+              <i id="generalArrow" class="arrow down" title="Expand/Collapse"></i>
+            </div>
+            <div class="configGeneral">
+              <input type="checkbox" name="" style="">   Run at Window Start
+              <div class="macDiv">
+                <h6 id="macText">Macaddress =>  
+                  <span id="appID"></span>
+                  <button id="button1" onclick="CopyToClipboard('appID')" style="background: #d9e809; color: black; border: none;border-radius: 3px;">C</button>
+                </h6>
+              </div>
+              <div>
+                <button class="btn btn-primary" id="newKeyBtn">Enter New Product Key</button>
+              </div>
+            </div>
+
+
+            <div class="configThreeDiv" id="serialDevices">
+            Serial Devices
+              <i id="serialArrow" class="arrow down" title="Expand/Collapse"></i>
+            </div>
+
+            <div class="configSerial">
+              <div class="select-test-port">
+                <div style="padding: 0px 10px;">
+
+                  <div style="padding: 0px; justify-content: space-between; display: flex; font-weight: bold;">
+                    <div>
+                      <span>Serialport #1 </span>
+                      <input type="radio" name="serialportNumber" value="1" id="gasInput" checked="true" style="margin: 0 30px;">
+                      <span>Serialport #2 </span>
+                      <input type="radio" name="serialportNumber" value="2" id="smokeInput" style="margin: 0 30px; color: #000000;">
+                      <button class="btn btn-primary btn-scan">Scan</button>
+                    </div>
+                  </div>
+
+                  <div id="portOneDiv" class="portDivs">
+                    <div style="padding:0px; width: 55%; margin-left: 5px;">
+                      Equipment available:
+                      <div class="testTypeDiv">
+                        <select class="testPortSelects" multiple="true" id="portOneTest" size="8">
+                          <option value="ndg15" selected>Biva Engineer BEGB05</option>
+                          <option value="sss15" >Biva Engineer BESB01</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div style="padding:0px; width: 40%; margin-left: 15px;">
+                      Serial ports available:
+                      <div class="portDivSelect">
+                        <select class="form-control portSelects" multiple="true" id="comPortOne">
+                          <option selected="true">COM0</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="portTwoDiv" class="portDivs">
+                     <div style="padding:0px; width: 55%; margin-left: 5px;">
+                      Equipment available:
+                      <div class="testTypeDiv">
+                        <select class="testPortSelects" multiple="true" id="portTwoTest" size="8">
+                          <option value="ndg15" >Biva Engineer BEGB05</option>
+                          <option value="sss15"  selected>Biva Engineer BESB01</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div style="padding:0px; width: 40%; margin-left: 15px;">
+                      Serial ports available:
+                      <div class="portDivSelect">
+                        <select class="form-control portSelects" id="comPortTwo">
+                          <option selected="true">COM0</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+<!-- -------------------------------------- -->
+             
+              </div>
+             
+
+<!-- ---------------------------------------------- -->
+              <fieldset class="myFieldset">
+                <legend class="myLegend">Port Settings</legend>
+                <div class="select-data">
+                    <div>
+                        <label for="BaudRate">Bits per second: </label>
+                        <!-- <input type="text" class="form-control" id="BaudRate" value="9600"> -->
+                        <select class="test" id="BaudRate">
+                          <!-- <option>75</option>
+                          <option>134</option>
+                          <option>150</option>
+                          <option>300</option>
+                          <option>600</option>
+                          <option>1200</option>
+                          <option>1800</option>
+                          <option>2400</option>
+                          <option>4800</option>
+                          <option>7200</option> -->
+                          <option selected>9600</option>
+                          
+                        </select>
+                    </div>
+                    <div>
+                        <label for="stopbits">Stop Bits:</label>
+                        <select id="stopbits" class="test">
+                            <option selected>1</option>
+                            <!-- <option>1.5</option>
+                            <option>2</option> -->
+                        </select>
+                    </div>
+                  </div>
+                  <div class="select-data">
+                    <div>
+                        <label for="databits">Data Bits:</label>
+                        <select id="databits" class="test">
+                            <!-- <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option> -->
+                            <option selected>8</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="flowcontrol">Flow Control:</label>
+                        <select id="flowcontrol" class="test">
+                            <!-- <option>Xon / Xoff</option>
+                            <option>Hardware</option> -->
+                            <option selected>None</option>
+                        </select>
+                    </div>
+                  </div>
+                  <div class="select-data">
+                    <div>
+                        <label for="parity">Parity:</label>
+                        <select id="parity" class="test">
+                            <!-- <option>Even</option>
+                            <option>Odd</option> -->
+                            <option selected>None</option>
+                            <!-- <option>Marks</option>
+                            <option>Space</option> -->
+                        </select>
+                    </div>
+                    <div class="portButtons">
+                      <button id="apply">Apply</button>
+                      <button id="resetBtn">Restore Defaults</button>
+                    </div>
+                </div>
+              </fieldset>
+            </div>
+
+
+            <div class="configThreeDiv" id="webServices">
+            Web Services
+              <i id="webServicesArrow" class="arrow down" title="Expand/Collapse"></i>
+            </div>
+
+            <div class="configWebServices">
+              <span style="text-decoration: underline;">Web services network interface:</span>
+              <select>
+                <!-- <option>0.0.0.0</option> -->
+                <option selected>127.0.0.1</option>
+                <!-- <option>0.0.0.0 (Intel(R) Ethernet Connection 1218-LM)</option>
+                <option>0.0.0.0 (Bluetooth Device (Personal Area Network))</option>
+                <option>192.168.1.15 (Intel(R) Dual Band Wireless N-7260)</option>
+                <option>0.0.0.0 (Microsoft Wi Fi Direct Virtual Adapter #2)</option>
+                <option>192.168.137.1 (Microsoft Wi Fi Direct Virtual Adapter #3)</option> -->
+              </select> 
+              <br>
+              <span style="padding-top: 10px;">Web services port:</span>
+              <br>
+              <input type="text" name="" value="8190" style="width: 100px; text-align: right;">
+            </div>
+          </div>  
+          <!-- -------------------about div------------------------ -->
+          <div id="aboutDiv">
+            <div class="row">
+              <div class="col-sm-2"><img src="./public/img/logo1.png" width="70px" height="70px"></div>
+              <div class="col-sm-10">
+                <h4 style="margin-top: 30px;">Multi-Gas Analyser & Smoke Meter</h4>
+                <h5>Ver. 1.0.0</h5>
+              </div>
+            </div>
+              <div style="margin-top: 50px;">
+                Powered by:
+                <h4 style="margin-top: 10px;">BIVA ENGINEER INDIA PVT. LTD.</h4>
+                <!-- For buisness enquiry <br>
+                email: support@wamelectronics.com   -->
+              </div>
+            <div class="copyrightDiv">powered by BIVA Engineer. Copyrights 2018. All rights reserved.</div>
+           </div>
+         </div>
+       </div>
+
+
+
+
+</body>
+
+<script type="text/javascript">
+
+  function CopyToClipboard(appID) 
+  {
+      var range = document.createRange();
+      range.selectNode(document.getElementById("appID"));
+      window.getSelection().removeAllRanges(); // clear current selection
+      window.getSelection().addRange(range); // to select text
+      document.execCommand("copy");
+      window.getSelection().removeAllRanges();// to deselect
+      console.log('copied');
+  }
+  window.$ = window.jQuery = require('./public/js/jquery.min.js');
+  var { remote } = require('electron');
+  
+    $('#statusTool').click(()=>{
+      $('#statusTool').addClass('active');
+      $('#configTool').removeClass('active');
+      $('#aboutTool').removeClass('active');
+      $('#statusDiv').show();
+      $('#configDiv').hide();
+      $('#aboutDiv').hide();
+    })
+  
+    $('#configTool').click(()=>{
+      $('#statusTool').removeClass('active');
+      $('#configTool').addClass('active');
+      $('#aboutTool').removeClass('active');
+      $('#statusDiv').hide();
+      $('#configDiv').show();
+      $('#aboutDiv').hide();
+    })
+  
+    $('#aboutTool').click(()=>{
+      $('#statusTool').removeClass('active');
+      $('#configTool').removeClass('active');
+      $('#aboutTool').addClass('active');
+      $('#statusDiv').hide();
+      $('#configDiv').hide();
+      $('#aboutDiv').show();
+    })
+  
+    $('#general').click(()=>{
+      $('.configGeneral').slideDown();
+      $('.configSerial').slideUp();
+      $('.configWebServices').slideUp();
+  
+      $('#generalArrow').removeClass('down');
+      $('#generalArrow').addClass('up');
+      $('#serialArrow').removeClass('up');
+      $('#serialArrow').addClass('down');
+      $('#webServicesArrow').removeClass('up');
+      $('#webServicesArrow').addClass('down');
+    })
+  
+    $('#serialDevices').click(()=>{
+      $('.configGeneral').slideUp();
+      $('.configSerial').slideDown();
+      $('.configWebServices').slideUp();
+      $('#generalArrow').removeClass('up');
+      $('#generalArrow').addClass('down');
+      $('#serialArrow').removeClass('down');
+      $('#serialArrow').addClass('up');
+      $('#webServicesArrow').removeClass('up');
+      $('#webServicesArrow').addClass('down');
+    })
+  
+    $('#webServices').click(()=>{
+      $('.configGeneral').slideUp();
+      $('.configSerial').slideUp();
+      $('.configWebServices').slideDown();
+      $('#generalArrow').removeClass('up');
+      $('#generalArrow').addClass('down');
+      $('#serialArrow').removeClass('up');
+      $('#serialArrow').addClass('down');
+      $('#webServicesArrow').removeClass('down');
+      $('#webServicesArrow').addClass('up');
+    })
+  
+    $('#resetBtn').click(()=>{
+      $('#BaudRate').prop('selectedIndex',10);
+      $('#stopbits').prop('selectedIndex',0);
+      $('#databits').prop('selectedIndex',4);
+      $('#flowcontrol').prop('selectedIndex',2);
+      $('#parity').prop('selectedIndex',2);
+    });
+  
+    $('#gasInput').click(()=>{
+      $('#portOneDiv').show();
+      $('#portTwoDiv').hide();
+    })
+  
+    $('#smokeInput').click(()=>{
+      $('#portOneDiv').hide();
+      $('#portTwoDiv').show();
+    })
+  
+    $('#gasInput').click();
+  
+  
+    $('#minimize').click(()=>{
+      remote.BrowserWindow.getFocusedWindow().minimize();
+    })
+  
+    $('#exit').click(()=>{
+      window.close();
+    })
+  
+    $('.receive-windows').append(`<br/>BIVA Engineer BEGB05 searching parser...`);      
+    $('.receive-windows').append(`<br/>BIVA Engineer BEGB05 attaching to parser...`);
+    $('.receive-windows').append(`<br/>BIVA Engineer BESB01 searching parser...`);      
+    $('.receive-windows').append(`<br/>BIVA Engineer BESB01 attaching to parser...`);      
+  
+  
+    var abr;
+  
+    const { app,dialog } = require('electron').remote
+    let serialport = require('serialport');
+    const Readline =  require('@serialport/parser-readline');
+    const ByteLength = require('@serialport/parser-byte-length')    
+    const fs = require('fs');
+    const prompt = require('electron-prompt');
+    var macaddress = require('macaddress');
+    let hexparserPetrol = "";
+    let hexparserDiesel = "";
+    let portGas = null;
+    let portSmoke = null;
+  
+    let lastapplied = '';
+    let lastAppliedTest='';
+    let lastAppliedPort = '';
+    let COMSMOKE = "";
+    let COMGAS ='';
+    let portonetest ;
+    let comPortOne ='';
+    let porttwotest ;
+    let comPortTwo ='';
+    let brg, brs, dbg, dbs, sbg, sbs, ptg, pts = '';
+  
+    let BaudRate = parseInt($('#BaudRate').val());
+    let Databits = parseInt($('#databits').val());
+    let Stopbits = parseFloat($('#stopbits').val());
+    let Parity = $('#parity').val().toLowerCase();
+  
+     macaddress.one((err,mac)=>{
+      $('#appID').append(mac);
+     });
+    console.log(parseInt('0E',16));
+    scanPorts();
+  
+  
+  $('#apply').click(()=>{
+    BaudRate = $('#BaudRate').val();
+    Databits = $('#databits').val();
+    Stopbits = $('#stopbits').val();
+    Parity = $('#parity').val().toLowerCase();
+  
+    portonetest = $('#portOneTest :selected').val()
+    comPortOne = $('#comPortOne :selected').val()
+    porttwotest = $('#portTwoTest :selected').val()
+    comPortTwo = $('#comPortTwo :selected').val()
+  
+    let srNo = $('input[name="serialportNumber"]:checked').val();
+  
+    if (srNo == "1") 
+    {
+      lastAppliedPort = comPortOne;
+      lastAppliedTest = portonetest;
+      if (portonetest == 'ndg15')
+      {
+        lastapplied = 'ndg15';
+        COMGAS = comPortOne;
+        brg = BaudRate;
+        dbg = Databits;
+        sbg = Stopbits;
+        ptg = Parity;
+      }
+      else
+      {
+        lastapplied = 'sss15';
+        COMSMOKE = comPortOne;
+        brs = BaudRate;
+        dbs = Databits;
+        sbs = Stopbits;
+        pts = Parity;
+      }
+      console.log("Port "+ srNo+" "+portonetest + " is set "+comPortOne);
+    }
+    else if (srNo == "2") 
+    {
+      lastAppliedPort = comPortTwo;
+      lastAppliedTest = porttwotest;
+      if (porttwotest == 'ndg15') 
+      {
+        lastapplied = 'ndg15';
+        COMGAS = comPortTwo;
+        brg = BaudRate;
+        dbg = Databits;
+        sbg = Stopbits;
+        ptg = Parity;
+      }
+      else
+      {
+        lastapplied = 'sss15';
+        COMSMOKE = comPortTwo;
+        brs = BaudRate;
+        dbs = Databits;
+        sbs = Stopbits;
+        pts = Parity;
+      }
+      console.log("Port "+ srNo+" "+porttwotest + " is set "+comPortTwo)
+    }
+  
+    messagePrompt("SerialPort"+srNo+" settings saved successfully.")
+  
+  });
+  
+  
+  $('.btn-submit').click(() => {
+    console.log('submit button clicked');
+    let buttonName=$('#submitBtn').text();
+    console.log(buttonName);  
+  
+  if (buttonName == "START") {
+  
+    BaudRate = $('#BaudRate').val();
+    Databits = $('#databits').val();
+    Stopbits = $('#stopbits').val();
+    Parity = $('#parity').val().toLowerCase();
+    console.log(BaudRate+Databits+Stopbits+Parity)
+  
+    portonetest = $('#portOneTest :selected').val()
+    comPortOne = $('#comPortOne :selected').val()
+    console.log(comPortOne);  
+    porttwotest = $('#portTwoTest :selected').val()
+    comPortTwo = $('#comPortTwo :selected').val()
+    console.log(comPortTwo);  
+      
+    var macaddress = require('macaddress');
+    var CryptoJS = require("crypto-js");
+    fs.readFile('productkey.json',(err,data)=>{
+      if (err) {
+        enterProductKey();
+      }// end readfile error
+      else
+      {   
+        const secretKey = 'BIVA';
+        var bytes  = CryptoJS.AES.decrypt(JSON.parse(data).key, secretKey);
+        plaintext = bytes.toString(CryptoJS.enc.Utf8);
+        var macadexpdate = plaintext.split("$$");
+        var macad = macadexpdate[0];
+        var expdate = macadexpdate[1];
+  
+        console.log("readFile productkey")
+        var check = checkExpiryDate(expdate);
+        console.log(check);
+  
+        if(check=="true" || check==true)
+        {
+          console.log('true expirydate');
+          if(comPortOne == comPortTwo && portonetest==porttwotest){
+            if(portonetest == 'ndg15') {
+              startGasPort(COMGAS,brg,sbg,dbg,ptg);
+            }
+            else{
+              startSmokePort(COMSMOKE,brs,sbs,dbs,pts);
+            }
+            
+          }
+          if(comPortOne == comPortTwo && portonetest!=porttwotest){
+            startLastApplied(lastAppliedTest,lastAppliedPort,BaudRate,Stopbits,Databits,Parity);
+          }
+          if(comPortOne != comPortTwo && portonetest==porttwotest){
+            startLastApplied(lastAppliedTest,lastAppliedPort,BaudRate,Stopbits,Databits,Parity);
+          }
+          //both ports are different and user is testing both smoke and gas
+          if(comPortOne != comPortTwo && portonetest!=porttwotest)
+          {
+            console.log("comgas"+COMGAS+" : comsmoke "+COMSMOKE);
+            console.log("SmokeParameter "+brs+" "+sbs+ " "+dbs+" "+pts);
+            console.log("GasParameter "+brg+" "+sbg+ " "+dbg+" "+ptg);
+  
+            if (COMSMOKE=='') 
+            {
+              startGasPort(COMGAS,brg,sbg,dbg,ptg);
+            }
+            else if(COMGAS=='')
+            {
+              startSmokePort(COMSMOKE,brs,sbs,dbs,pts);
+            }
+            else
+            {
+              startSmokePort(COMSMOKE,brs,sbs,dbs,pts);
+              startGasPort(COMGAS,brg,sbg,dbg,ptg);
+            }
+          }
+        
+          if (portGas != null) {
+            portGas.on('error',(err)=>{
+              $('.receive-windows').append(`<br/>Could not open the Gas port: ${COMGAS}`);
+              scrollToTop();
+            });
+          }
+  
+          if(portSmoke != null)
+          {
+            portSmoke.on('error',(err)=>{
+              $('.receive-windows').append(`<br/>Could not open the Smoke port: ${COMSMOKE}`);
+              scrollToTop();
+            });
+          }
+  
+        }// end else productKey is okay
+  
+      }// end else readfile error
+    });//end readfile(productkey) 
+  }// end buttonName==='Start'
+  
+  else if(buttonName==='STOP'){
+      app.showExitPrompt = true
+      if (app.showExitPrompt) 
+      {
+        dialog.showMessageBox({
+            type: 'question',
+            buttons: ['OK','NO'],
+            title: 'Alert',
+            message: 'Port is going to close. You may loose data'
+        }, function (response) {
+            if (response === 0) { // Runs the following if 'Yes' is clicked
+              app.showExitPrompt = false
+  
+              if(portGas != null)
+              {
+                portGas.flush();
+                portGas.close(err=> {
+                  if(err)
+                    console.log('port close error', err);
+                  else
+                  {
+                    hexparserPetrol = "";
+                    $('.receive-windows').append(`<br/>${currentDateTime()}: disconnected BIVA Engineer BEGB05 from - ${COMGAS}`);
+                  }
+                  scrollToTop();  
+                  portGas = null;
+                });
+              }
+  
+              if(portSmoke !=null)
+              {
+                portSmoke.flush();
+                portSmoke.close(err=> {
+                  if(err)
+                    console.log('port close error', err);
+                  else
+                  {
+                    hexparserDiesel = "";
+                    $('.receive-windows').append(`<br/>${currentDateTime()}: disconnected BIVA Engineer BESB01 from - ${COMSMOKE}`); 
+                  }
+                  scrollToTop();  
+                  portSmoke= null;
+                });
+            }
+            $('#submitBtn').html("START");
+            $('#submitBtn').removeClass("btn-submit2");
+            $('#submitBtn').addClass("btn-submit");
+  
+            }
+        })
+      }
+       
+    }
+  });
+  
+  //scan button
+  $('.btn-scan').click(()=>{
+     console.log("scan clicked")
+     scanPorts();
+  })
+  
+  function startLastApplied(lastAppliedTest,lastAppliedPort,br,sb,db,pt){
+    if (lastAppliedTest=='ndg15') {
+      startGasPort(lastAppliedPort,br,sb,db,pt);
+    }
+    if (lastAppliedTest=='sss15') {
+      startSmokePort(lastAppliedPort,br,sb,db,pt);
+    }
+  }
+  
+  function changeToStop(){
+    $('#submitBtn').html("STOP");
+    $('#submitBtn').removeClass("btn-submit");
+    $('#submitBtn').addClass("btn-submit2");
+  }
+  
+  function startSmokePort(COMSMOKE,brs,sbs,dbs,pts){
+    hexparserDiesel =new ByteLength({ length: 53});
+    portSmoke = new serialport(COMSMOKE, {
+      baudRate: parseInt(brs),
+      stopBits: parseFloat(sbs),
+      dataBits: parseFloat(dbs),
+      parity: pts,
+    });
+  
+    portSmoke.pipe(hexparserDiesel);
+    console.log(COMSMOKE + " smoke port open")
+    $('.receive-windows').append(`<br/>BIVA Engineer BESB01 successfully connected to ${COMSMOKE}`);
+    scrollToTop();
+            console.log("receiveSmokeData function");
+            hexparserDiesel.on('data',(data)=>{
+              console.log(" hexparserDiesel.on('data')");
+              console.log(data);
+              if(data.length===53)
+              {
+                if(data[0]===0x2D && data[1]===0x66)
+                {
+                  if(data[data.length-2]===0x40 && data[data.length-1]===0x24)
+                  {
+                    console.log('smoke data perfect')
+                    
+
+                          // flush cycle start
+                    let fidealrpm= parseInt(data[3])*256 + parseInt(data[4]);
+                    let fmaxrpm = parseInt(data[5])*256 + parseInt(data[6]);
+                    let foiltemp = parseInt(data[7])*256 + parseInt(data[8]);
+                    let fchecksum = parseInt(data[9]);
+                    // flush cycle end
+
+                    // measurement cycle start
+                    // cycle 1 
+                    let kval1 = parseInt(data[14])*256 + parseInt(data[15]);
+                    let hsuval1 = parseInt(data[16])*256 + parseInt(data[17]);
+                    let midealrpm1 = parseInt(data[18])*256 + parseInt(data[19]);
+                    let mmaxrpm1 = parseInt(data[20])*256 + parseInt(data[21]);
+                    let moil1 = parseInt(data[22])*256 + parseInt(data[23]);
+      
+                    // cycle 2
+                    let kval2 = parseInt(data[24])*256 + parseInt(data[25]);
+                    let hsuval2 = parseInt(data[26])*256 + parseInt(data[27]);
+                    let midealrpm2 = parseInt(data[28])*256 + parseInt(data[29]);
+                    let mmaxrpm2 = parseInt(data[30])*256 + parseInt(data[31]);
+                    let moil2 = parseInt(data[32])*256 + parseInt(data[33]);
+
+                    // cycle 3
+                    let kval3 = parseInt(data[34])*256 + parseInt(data[35]);
+                    let hsuval3 = parseInt(data[36])*256 + parseInt(data[37]);
+                    let midealrpm3 = parseInt(data[38])*256 + parseInt(data[39]);
+                    let mmaxrpm3 = parseInt(data[40])*256 + parseInt(data[41]);
+                    let moil3 = parseInt(data[42])*256 + parseInt(data[43]);
+
+                    mavgkval = parseInt(data[44])*256 + parseInt(data[45]);
+                    mavghsuval = parseInt(data[46])*256 + parseInt(data[47]);
+                    mtest = parseInt(data[48]);
+                    mchecksum = parseInt(data[51]);
+                    
+                    // let favgminrpm = parseInt(data[2])*256 + parseInt(data[3]);
+                    // let favgmaxrpm = parseInt(data[4])*256 + parseInt(data[5]);
+                    // let favgoiltemp = parseInt(data[6])*256 + parseInt(data[7]);
+                    
+                    // let fminrpm1 = parseInt(data[8])*256 + parseInt(data[9]);
+                    // let fmaxrpm1 = parseInt(data[10])*256 + parseInt(data[11]);
+                    // let foiltemp1 = parseInt(data[12])*256 + parseInt(data[13]);
+                    
+                    // let fminrpm2 = parseInt(data[14])*256 + parseInt(data[15]);
+                    // let fmaxrpm2 = parseInt(data[16])*256 + parseInt(data[17]);
+                    // let foiltemp2 = parseInt(data[18])*256 + parseInt(data[19]);
+                    
+                    // let fminrpm3 = parseInt(data[20])*256 + parseInt(data[21]);
+                    // let fmaxrpm3 = parseInt(data[22])*256 + parseInt(data[23]);
+                    // let foiltemp3 = parseInt(data[24])*256 + parseInt(data[25]);
+                    
+                    // let hsu1 = ((parseInt(data[26])*256 + parseInt(data[27]))/100).toFixed(2);
+                    // let k1 = ((parseInt(data[28])*256 + parseInt(data[29]))/100).toFixed(2);
+                    // let minrpm1 = parseInt(data[30])*256 + parseInt(data[31]);
+                    // let maxrpm1 = parseInt(data[32])*256 + parseInt(data[33]);
+                    // let oiltemp1 = parseInt(data[34])*256 + parseInt(data[35]);
+  
+                    // let hsu2 = ((parseInt(data[36])*256 + parseInt(data[37]))/100).toFixed(2);
+                    // let k2 = ((parseInt(data[38])*256 + parseInt(data[39]))/100).toFixed(2);
+                    // let minrpm2 = parseInt(data[40])*256 + parseInt(data[41]);
+                    // let maxrpm2 = parseInt(data[42])*256 + parseInt(data[43]);
+                    // let oiltemp2 = parseInt(data[44])*256 + parseInt(data[45]);
+                    
+                    // let hsu3 = ((parseInt(data[46])*256 + parseInt(data[47]))/100).toFixed(2);
+                    // let k3 = ((parseInt(data[48])*256 + parseInt(data[49]))/100).toFixed(2);
+                    // let minrpm3 = parseInt(data[50])*256 + parseInt(data[51]);
+                    // let maxrpm3 = parseInt(data[52])*256 + parseInt(data[53]);
+                    // let oiltemp3 = parseInt(data[54])*256 + parseInt(data[55]);
+                    
+                    // let avghsu = ((parseInt(data[56])*256 + parseInt(data[57]))/100).toFixed(2);
+                    // let avgk = ((parseInt(data[58])*256 + parseInt(data[59]))/100).toFixed(2);
+                    // let avgminrpm = parseInt(data[60])*256 + parseInt(data[61]);
+                    // let avgmaxrpm = parseInt(data[62])*256 + parseInt(data[63]);
+                    // let avgoiltemp = parseInt(data[64])*256 + parseInt(data[65]);
+  
+                    // let checksum = parseInt(data[32]);
+                    var date = new Date();
+                    var cdate = date.getDate()+"-"+("0"+(date.getMonth()+1)).slice(-2)+ "-"+date.getFullYear();
+                    var ctime = date.getHours() +":"+date.getMinutes();
+  
+                      rawDataIntoString='';
+                      let machineData={
+                        //  PUC_Test:"Utkal Electronics/SSS15_tController.puc_data",
+                        Flush_Cyl:"#PT;"+fidealrpm+";"+fmaxrpm+";"+foiltemp+";",
+                        Status:"OK",
+                        Test1:"TR01;"+kval1+";"+midealrpm1+";"+mmaxrpm1+";"+moil1,
+                        Test2:"TR02;"+kval2+";"+midealrpm2+";"+mmaxrpm2+";"+moil2,
+                        Test3:"TR03;"+kval3+";"+midealrpm3+";"+mmaxrpm3+";"+moil3,
+                        // Test_AVG:"#TA;"+avgk,
+                        Date:cdate.toString(),
+                        Time:ctime.toString(),
+                        Test_Status:"#TS0",
+                        //  PUC_Test_End:"Utkal Electronics/SSS15_tController.puc_data"
+                      };
+            
+                     let jsonContent = JSON.stringify(machineData);
+                      fs.writeFile("smoke.json",jsonContent,'utf8',(err)=>{
+                        if(err){
+                         
+  
+                        }else{
+                            console.log("File has been save for the smoke test");
+                            
+                        }
+                      });
+                      $('.receive-windows').append("<br/> Equipment is sending Data...");
+                      scrollToTop();
+                      $('.receive-windows').text(jsonContent.replace(/,/g,'\n'));
+                  }
+                }
+                else
+                {
+                   data='';
+                   $('.receive-windows').append("<br/> Inappropriate Data ...");
+                }
+                
+              }
+              data='';
+              // portSmoke.flush();
+            }); // end hexparserDiesel on data
+    changeToStop();
+  }
+  
+  function startGasPort(COMGAS,brg,sbg,dbg,ptg){
+    hexparserPetrol =new ByteLength({ length: 31});
+    portGas = new serialport(COMGAS, {
+      baudRate: parseInt(brg),
+      stopBits: parseFloat(sbg),
+      dataBits: parseFloat(dbg),
+      parity: ptg,
+    });
+  
+    portGas.pipe(hexparserPetrol);
+    console.log(COMGAS+" gas port open")
+    $('.receive-windows').append(`<br/>BIVA Engineer BEGB05 successfully connected to ${COMGAS}`);
+    scrollToTop();
+    console.log("receiveGasData function");
+            hexparserPetrol.on('data',(data)=>{
+              console.log(" hexparserPetrol.on('data')");
+              console.log(data);
+               if(data.length===31)
+              {console.log("Perfect Gas 1");
+                if(data[0]===0x10 && data[1]===0x02)
+                {console.log("Perfect Gas 2");
+                  if(data[data.length-1]===0x03 && data[data.length-2]===0x10)
+                  {
+                    console.log("Perfect Gas Data");
+
+                    let CO2_1 = ( (parseInt(data[2])*256 + parseInt(data[3]))/100).toFixed(2);
+                    let CO_1 = ( (parseInt(data[4])*256 + parseInt(data[5]))/100).toFixed(2);
+                    let COCOR_1 = ( (parseInt(data[6])*256 + parseInt(data[7]))/100).toFixed(2);
+                    let HC_1 = ( parseInt(data[10])*256 + parseInt(data[11]));
+                    let O2_1 = ( (parseInt(data[12])*256 + parseInt(data[13]))/100).toFixed(2);
+                    let PEF_1 = ( parseInt(data[14])*256 + parseInt(data[15]));
+                    let RPM_1 = ( parseInt(data[16])*256 + parseInt(data[17]));
+                    let lambda_1 = ( (parseInt(data[18])*256 + parseInt(data[19]))/1000).toFixed(3);
+
+                    let AFR_1 = (parseInt(data[20]) + (parseInt(data[21])*256) + (parseInt(data[22])*65536) + (parseInt(data[23])*4294967296)).toFixed(3);
+                                  // High Bytes
+
+                    let FUELH_1 = parseInt(data[24]);
+                    // let TIC = parseInt(data[26]);
+                    let checksum = parseInt(data[28]);
+  
+                    // let dd = ("0"+parseInt(data[2])).slice(-2);
+                    // let mm = ("0"+parseInt(data[3])).slice(-2);
+                    // let yy = ("0"+parseInt(data[4])).slice(-2);
+  
+                    // let dd = ("0"+data[2].toString(16)).slice(-2);
+                    // let mm = ("0"+data[3].toString(16)).slice(-2);
+                    // let yy = ("0"+data[4].toString(16)).slice(-2);
+                    // let hr_1 = ("0"+data[5].toString(16)).slice(-2);
+                    // let min_1 = ("0"+data[6].toString(16)).slice(-2);
+                    // let SE_1 = ("0"+data[7].toString(16)).slice(-2);
+                    // let CO_1 = ( (parseInt(data[8])*256 + parseInt(data[9]))/1000).toFixed(2);
+                    // let CO2_1 = ( (parseInt(data[10])*256 + parseInt(data[11]))/100).toFixed(2);
+                    // let HC_1 = ( parseInt(data[12])*256 + parseInt(data[13]));
+                    // let O2_1 = ( (parseInt(data[14])*256 + parseInt(data[15]))/100).toFixed(2);
+                    // let NOX_1 = ( parseInt(data[16])*256 + parseInt(data[17]));
+                    // let CC_1 = ( parseInt(data[18])*256 + parseInt(data[19]));
+                    // let lambda_1 = ( (parseInt(data[20])*256 + parseInt(data[21]))/1000).toFixed(3);
+                    // let RPM_1 = ( parseInt(data[22])*256 + parseInt(data[23]));
+                    // let PEF_1 = ( parseInt(data[24])*256 + parseInt(data[25]));
+                    // let OT_1 = ( parseInt(data[26])*256 + parseInt(data[27]));
+                    // let AFR_1 = ( parseInt(data[28])*256 + parseInt(data[29]));
+                    // let FUELH_1 = parseInt(data[30]);
+                    // let FUELL_1 = parseInt(data[31]);
+                    // let checksum = parseInt(data[32]);
+  
+                    // let date = dd.toString()+"-"+mm.toString()+"-"+yy.toString();
+  
+                      rawDataIntoString='';
+                      let machineData={
+
+                        CO2:CO2_1.toString(),
+                        CO:CO_1.toString(),
+                        COCOR:COCOR_1.toString(),
+                        HC:HC_1.toString(),
+                        O2:O2_1.toString(),
+                        PEF:PEF_1.toString(),
+                        RPM:RPM_1.toString(),
+                        // Lambda_CO:CO_1.toString(),
+                        Lambda:lambda_1.toString(),
+                        // Date:date.toString(),
+                        // Time:hr_1.toString()+":"+min_1.toString(),
+                        AFR:AFR_1.toString(),
+                        FUEL:FUELH_1.toString(),
+                        CHECKSUM:checksum.toString,
+                        Reserve:"8",
+                        Status:"OK",
+                        // "PUC_Test":"Utkal Electronics/NDG15_tController.puc_data",
+                        // CO:CO_1.toString(),
+                        // HC:HC_1.toString(),
+                        // CO2:CO2_1.toString(),
+                        // O2:O2_1.toString(),
+                        // RPM:RPM_1.toString(),
+                        // Lambda_CO:CO_1.toString(),
+                        // Lambda:lambda_1.toString(),
+                        // Date:date.toString(),
+                        // Time:hr_1.toString()+":"+min_1.toString(),
+                        // Reserve:"8",
+                        // Status:"OK"
+                      };
+                     
+            
+                     let jsonContent = JSON.stringify(machineData);
+                      fs.writeFile("gas.json",jsonContent,'utf8',(err)=>{
+                        if(err){
+                          console.log("Error in Gas Data");
+                          // $('.receive-windows').append("<br/> Inappropriate Data ...");
+                        }else{
+                            console.log("File has been save for the gas test");
+                            
+                        }
+                      });
+                      $('.receive-windows').append("<br/> Equipment is sending Data...");
+                      scrollToTop();
+                      $('.receive-windows').text(jsonContent.replace(/,/g,'\n'));
+                  }
+                }
+                else{
+                  $('.receive-windows').append("<br/> Inappropriate Data ...");
+                }
+              }
+  
+              data=null;
+              try
+              {
+                portGas.flush();
+              }
+              catch(err)
+              {
+                  console.log(err);
+              }
+  
+            }); //end hexparserPetrol on data
+    changeToStop();
+  }
+  
+  function scanPorts(){
+  
+    serialport.list((err, ports) => {
+      // $(disabledSelect).empty();
+      $('#comPortOne').empty();
+      $('#comPortTwo').empty();
+      
+      if(err){
+        messagePrompt('No Comport Found')
+      }
+      else if(ports.length>0)
+      {
+        for (let item of ports) {
+          $('#comPortOne').append(`<option>${item.comName}</option>`)
+          $('#comPortTwo').append(`<option>${item.comName}</option>`)
+        }
+        $("#comPortOne option:last").attr("selected", "selected");
+        $("#comPortTwo option:last").attr("selected", "selected");
+       
+        console.log(ports);
+      }
+      else{
+        $('#comPortOne').append(`<option selected>COM0</option>`)
+        $('#comPortTwo').append(`<option selected>COM0</option>`)
+      }
+    });
+  }
+  
+  
+  function checkProductKey(){
+    return true;
+    var macaddress = require('macaddress');
+    var CryptoJS = require("crypto-js");
+    fs.readFile('productkey.json',(err,data)=>{
+      if (err) {
+        enterProductKey();
+      }// end readfile error
+      else{
+        if(!checkExpiryDate(expdate)){
+          return 'false';
+        }
+        else{
+          return 'true';
+        }
+      }
+    })//end readfile(productkey)
+  }// end checkProductKey
+  
+  function enterProductKey(){
+    return;
+    var macaddress = require('macaddress');
+    var CryptoJS = require("crypto-js");
+    const secretKey = 'UTKAL';
+    prompt({
+          title: 'Please Enter Product Key',
+          label: 'Product Key:',
+          
+          inputAttrs: {
+              type: 'text'
+          },
+          type: 'input'
+        })
+        .then((r) => {
+          if(r === null) {
+            console.log('user cancelled');
+            return 'false';
+          } 
+          else 
+            {
+              if(r!=="")
+              {
+                console.log(r);
+                r = r.trim();
+                var plaintext="";
+                macaddress.one(function (err, mac) {
+                  try
+                  { 
+                    // console.log(secretKey)
+                    var bytes  = CryptoJS.AES.decrypt(r.toString(), secretKey);
+                    // console.log(bytes);
+                    plaintext = bytes.toString(CryptoJS.enc.Utf8);
+                    // console.log(plaintext);
+                    // console.log(JSON.parse(plaintext).str);
+                    var plaintextstr = JSON.parse(plaintext).str;
+                    var macadexpdate = plaintextstr.split("$$");
+                    var macad = macadexpdate[0];
+                    var expdate = macadexpdate[1];
+  
+                }
+                catch(error)
+                {
+                  console.log(error);
+                  messagePrompt('Error in productkey')
+                }
+                if(macad===mac)
+                {
+                       
+                  let keyJson={
+                    key:r.toString()
+                  };
+                  let jsonContent = JSON.stringify(keyJson);
+                  fs.writeFile("productkey.json",jsonContent,'utf8',(err)=>{
+                    if(err){
+                      console.log(err);
+                    }
+                    else{
+                      if(!checkExpiryDate(expdate)){
+                      }
+                      else{
+                      }
+                    }
+                  })
+                }
+                else{
+                  console.log(mac);
+                  console.log(macad);
+                  messagePrompt("Macaddress do not Match");
+                }
+              })// end macaddress function
+            }
+          }
+        })
+  }
+  
+  function currentDateTime(){
+    var date = new Date();
+    var cdt = (date.getMonth()+1)+"/"+ date.getDate()+"/"+date.getFullYear()+" "+ date.getHours()%12 +":"+date.getMinutes()+":"+("0"+date.getSeconds()).slice(-2);
+    if(date.getHours()%12 >=0)
+      cdt+=" PM";
+    else
+      cdt+=" AM";
+    return cdt;
+  }
+  
+  function clock(){
+    $('#clock').text(currentDateTime());
+    setTimeout(clock,1000);
+  }
+  clock();
+  
+  function checkExpiryDate(keyDate){
+    return true;
+    var date = new Date();
+    var today = date.getFullYear()+"-"+("0" + (date.getMonth() + 1)).slice(-2)+"-"+("0" + date.getDate()).slice(-2);
+    console.log(today);
+    if(keyDate>=today){
+      return 'true';
+    }
+    else{
+      messagePrompt('Your application date is expired, please get new product key...')
+      return 'false';
+    }
+  }// end checkExpiryDate()
+  
+  function messagePrompt(msg)
+  {
+    app.showExitPrompt = true
+      if (app.showExitPrompt) {
+  
+      dialog.showMessageBox({
+          type: 'question',
+          buttons: ['OK'],
+          title: 'Utkal - Serialport',
+          message: msg
+        }, function (response) {
+        if (response === 0) { // Runs the following if 'Yes' is clicked
+          app.showExitPrompt = false
+          
+        }
+      })
+    }
+  }
+  
+  function scrollToTop(){
+    // console.log('scrollToTop')
+    $(".receive-windows").animate({ scrollTop: $(".receive-windows")[0].scrollHeight}, 1000);
+  }
+    
+  function checkProductKey(){
+    fs.readFile('productkey.json',(err,data)=>{
+      if (err) {
+        return enterProductKey();
+      }// end readfile error
+      else
+      {
+        return true;
+      }
+    });
+  }
+    
+  $('#newKeyBtn').click(()=>{
+    enterProductKey();
+  })
+  </script>
+
+<!-- <script type="text/javascript" src="./public/js/myjs.js"></script>
+<script type="text/javascript" src="./public/js/gasParser.js"></script>
+<script type="text/javascript" src="./public/js/smokeParser.js"></script> -->
+</html>
